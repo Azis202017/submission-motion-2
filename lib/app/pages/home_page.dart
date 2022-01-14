@@ -7,7 +7,7 @@ import 'package:submission_2/app/widgets/home/menu_widget.dart';
 import 'package:submission_2/app/widgets/home/recommendation_widget.dart';
 
 class HomePage extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/home-page';
   const HomePage({Key? key}) : super(key: key);
 
   @override

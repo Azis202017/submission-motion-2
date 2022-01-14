@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
 import 'package:submission_2/app/data/list_chips.dart';
 import 'package:submission_2/app/data/list_food.dart';
 import 'package:submission_2/app/model/chips_model.dart';
@@ -16,13 +18,15 @@ class FoodPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.1;
-    print(itemHeight);
+
     final double itemWidth = size.width / 2;
-    print(itemWidth);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
           child: Icon(
             Icons.arrow_back,
             color: black,
@@ -162,7 +166,7 @@ class FoodPage extends StatelessWidget {
                                                     color: grey)),
                                           ],
                                         ),
-                                        trailing: Container(
+                                        trailing: SizedBox(
                                           width: 108,
                                           child: Row(
                                             children: [
@@ -214,7 +218,39 @@ class FoodPage extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                          showDialog<void>(
+                                            context: context,
+                                            barrierDismissible:
+                                                false, // user must tap button!
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                title : Lottie.asset('assets/json/success.json'),
+                                                content: SingleChildScrollView(
+                                                  child: ListBody(
+                                                    children: const <Widget>[
+                                                      Text(
+                                                          'Order Successfull'),
+                                                      Text(
+                                                          'Thanks for the order, wait for the food and enjoy ur life!'),
+                                                    ],
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    child:
+                                                         Text('Approve', style : subtitle2.copyWith(color : primary50),),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
                                         child: Text(
                                           'Place Holder',
                                           style: subtitle2.copyWith(

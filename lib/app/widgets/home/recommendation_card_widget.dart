@@ -51,7 +51,7 @@ class RecommendationCardWidget extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.star,
                                 color: Color(0xffF0C324),
                               ),

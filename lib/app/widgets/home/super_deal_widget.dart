@@ -18,7 +18,7 @@ class SuperDeal extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            padding: EdgeInsets.only(left: 16, top: 8),
+            padding: const EdgeInsets.only(left: 16, top: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
